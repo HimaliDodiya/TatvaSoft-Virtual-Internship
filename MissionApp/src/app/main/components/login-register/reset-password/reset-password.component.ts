@@ -16,11 +16,10 @@ import { APP_CONFIG } from "src/app/main/configs/environment.config"
 import { AuthService } from "src/app/main/services/auth.service"
 
 @Component({
-  selector: "app-reset-password",
-  standalone: true,
-  imports: [ReactiveFormsModule, NgIf, RouterModule],
-  templateUrl: "./reset-password.component.html",
-  styleUrls: ["./reset-password.component.css"],
+    selector: "app-reset-password",
+    imports: [ReactiveFormsModule, NgIf, RouterModule],
+    templateUrl: "./reset-password.component.html",
+    styleUrls: ["./reset-password.component.css"]
 })
 export class ResetPasswordComponent implements OnInit, AfterViewInit, OnDestroy {
   private unsubscribe: Subscription[] = [];

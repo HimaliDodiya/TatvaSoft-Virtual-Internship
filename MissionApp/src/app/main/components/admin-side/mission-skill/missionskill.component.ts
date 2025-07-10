@@ -12,11 +12,10 @@ import { FilterPipe } from 'src/app/main/pipes/filter.pipe';
 import { Subscription } from 'rxjs';
 declare var window: any;
 @Component({
-  selector: 'app-missionskill',
-  standalone: true,
-  imports: [SidebarComponent, HeaderComponent, FormsModule, RouterModule, NgxPaginationModule, NgStyle, NgIf, FilterPipe, NgFor],
-  templateUrl: './missionskill.component.html',
-  styleUrls: ['./missionskill.component.css']
+    selector: 'app-missionskill',
+    imports: [SidebarComponent, HeaderComponent, FormsModule, RouterModule, NgxPaginationModule, NgStyle, NgIf, FilterPipe, NgFor],
+    templateUrl: './missionskill.component.html',
+    styleUrls: ['./missionskill.component.css']
 })
 export class MissionskillComponent implements OnInit, OnDestroy {
   missionSkillList: any[] = [];

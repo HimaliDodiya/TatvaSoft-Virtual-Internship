@@ -18,11 +18,10 @@ import { Subscription } from 'rxjs';
 
 declare var window: any;
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
-  standalone: true,
-  imports: [CommonModule, FooterComponent, NavbarComponent, NgxPaginationModule, FormsModule, SearchPipe]
+    selector: 'app-home',
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.component.css'],
+    imports: [CommonModule, FooterComponent, NavbarComponent, NgxPaginationModule, FormsModule, SearchPipe]
 })
 export class HomeComponent implements OnInit, OnDestroy {
   missionList: any[] = [];

@@ -19,11 +19,10 @@ import { NavbarComponent } from '../navbar/navbar.component';
 import { Subscription } from 'rxjs';
 declare var window: any;
 @Component({
-  selector: 'app-volunteering-mission',
-  templateUrl: './volunteering-mission.component.html',
-  styleUrls: ['./volunteering-mission.component.css'],
-  standalone: true,
-  imports: [FooterComponent, TabsModule, NgxGalleryModule, CommonModule, SearchingSortingComponent, NavbarComponent]
+    selector: 'app-volunteering-mission',
+    templateUrl: './volunteering-mission.component.html',
+    styleUrls: ['./volunteering-mission.component.css'],
+    imports: [FooterComponent, TabsModule, NgxGalleryModule, CommonModule, SearchingSortingComponent, NavbarComponent]
 })
 export class VolunteeringMissionComponent implements OnInit, OnDestroy {
   galleryOptions: NgxGalleryOptions[];

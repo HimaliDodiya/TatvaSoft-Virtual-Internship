@@ -36,11 +36,10 @@ import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
 declare var window: any;
 @Component({
-  selector: 'app-user-edit-profile',
-  templateUrl: './user-edit-profile.component.html',
-  styleUrls: ['./user-edit-profile.component.css'],
-  standalone: true,
-  imports: [FormsModule, ListBoxModule, ReactiveFormsModule, NavbarComponent, CommonModule]
+    selector: 'app-user-edit-profile',
+    templateUrl: './user-edit-profile.component.html',
+    styleUrls: ['./user-edit-profile.component.css'],
+    imports: [FormsModule, ListBoxModule, ReactiveFormsModule, NavbarComponent, CommonModule]
 })
 export class UserEditProfileComponent implements OnInit, OnDestroy {
   changePasswordModal: any;

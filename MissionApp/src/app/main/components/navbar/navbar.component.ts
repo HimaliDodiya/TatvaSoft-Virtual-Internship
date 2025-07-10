@@ -6,11 +6,10 @@ import { FormsModule } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css'],
-  standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule, BsDropdownModule],
+    selector: 'app-navbar',
+    templateUrl: './navbar.component.html',
+    styleUrls: ['./navbar.component.css'],
+    imports: [CommonModule, FormsModule, RouterModule, BsDropdownModule]
 })
 export class NavbarComponent implements OnInit, OnDestroy {
   isLogin = false;

@@ -13,11 +13,10 @@ import { FilterPipe } from "src/app/main/pipes/filter.pipe"
 import { Subscription } from "rxjs"
 declare var window: any
 @Component({
-  selector: "app-mission",
-  standalone: true,
-  imports: [SidebarComponent, HeaderComponent, FormsModule, RouterModule, NgxPaginationModule, CommonModule, FilterPipe],
-  templateUrl: "./mission.component.html",
-  styleUrls: ["./mission.component.css"],
+    selector: "app-mission",
+    imports: [SidebarComponent, HeaderComponent, FormsModule, RouterModule, NgxPaginationModule, CommonModule, FilterPipe],
+    templateUrl: "./mission.component.html",
+    styleUrls: ["./mission.component.css"]
 })
 export class MissionComponent implements OnInit, OnDestroy {
   deleteModal: any
