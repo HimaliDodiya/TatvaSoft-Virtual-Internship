@@ -12,10 +12,11 @@ import { NavbarComponent } from '../navbar/navbar.component';
 import { Subscription } from 'rxjs';
 declare var window: any;
 @Component({
-    selector: 'app-volunteering-timesheet',
-    templateUrl: './volunteering-timesheet.component.html',
-    styleUrls: ['./volunteering-timesheet.component.css'],
-    imports: [ReactiveFormsModule, NavbarComponent, CommonModule]
+  selector: 'app-volunteering-timesheet',
+  templateUrl: './volunteering-timesheet.component.html',
+  styleUrls: ['./volunteering-timesheet.component.css'],
+  standalone: true,
+  imports: [ReactiveFormsModule, NavbarComponent, CommonModule]
 })
 export class VolunteeringTimesheetComponent implements OnInit, OnDestroy {
   volunteeringHourseModals: any;

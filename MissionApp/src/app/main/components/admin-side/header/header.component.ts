@@ -9,10 +9,11 @@ import { CommonModule } from '@angular/common';
 import { NgToastService } from 'ng-angular-popup';
 import { ClientService } from 'src/app/main/services/client.service';
 @Component({
-    selector: 'app-header',
-    imports: [BsDropdownModule, RouterModule, CommonModule],
-    templateUrl: './header.component.html',
-    styleUrls: ['./header.component.css']
+  selector: 'app-header',
+  standalone: true,
+  imports: [BsDropdownModule, RouterModule, CommonModule],
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   data: any;

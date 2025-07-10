@@ -3,11 +3,12 @@ import { RouterOutlet } from "@angular/router";
 import { NgToastModule } from "ng-angular-popup";
 
 @Component({
-    selector: 'app-root',
-    imports: [RouterOutlet, NgToastModule],
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.css'],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  selector: 'app-root',
+  standalone: true,
+  imports: [RouterOutlet, NgToastModule],
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppComponent {
   title = 'FrontEnd';

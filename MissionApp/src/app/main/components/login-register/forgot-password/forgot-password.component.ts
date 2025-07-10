@@ -9,10 +9,11 @@ import { APP_CONFIG } from "src/app/main/configs/environment.config"
 import { AuthService } from "src/app/main/services/auth.service"
 
 @Component({
-    selector: "app-forgot-password",
-    imports: [ReactiveFormsModule, NgIf, RouterModule],
-    templateUrl: "./forgot-password.component.html",
-    styleUrls: ["./forgot-password.component.css"]
+  selector: "app-forgot-password",
+  standalone: true,
+  imports: [ReactiveFormsModule, NgIf, RouterModule],
+  templateUrl: "./forgot-password.component.html",
+  styleUrls: ["./forgot-password.component.css"],
 })
 export class ForgotPasswordComponent implements OnInit, OnDestroy {
   private unsubscribe: Subscription[] = [];

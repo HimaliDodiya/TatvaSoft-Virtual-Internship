@@ -12,20 +12,21 @@ import { FilterPipe } from 'src/app/main/pipes/filter.pipe';
 import { Subscription } from 'rxjs';
 declare var window: any;
 @Component({
-    selector: 'app-user',
-    imports: [
-        SidebarComponent,
-        HeaderComponent,
-        FormsModule,
-        RouterModule,
-        NgxPaginationModule,
-        NgIf,
-        NgFor,
-        FilterPipe,
-        NgStyle,
-    ],
-    templateUrl: './user.component.html',
-    styleUrls: ['./user.component.css']
+  selector: 'app-user',
+  standalone: true,
+  imports: [
+    SidebarComponent,
+    HeaderComponent,
+    FormsModule,
+    RouterModule,
+    NgxPaginationModule,
+    NgIf,
+    NgFor,
+    FilterPipe,
+    NgStyle,
+  ],
+  templateUrl: './user.component.html',
+  styleUrls: ['./user.component.css'],
 })
 export class UserComponent implements OnInit, OnDestroy {
   page = 1;

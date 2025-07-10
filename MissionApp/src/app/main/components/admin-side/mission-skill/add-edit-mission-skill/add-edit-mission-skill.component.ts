@@ -11,10 +11,11 @@ import { NgIf } from "@angular/common"
 import { Subscription } from "rxjs"
 
 @Component({
-    selector: "app-add-edit-mission-skill",
-    imports: [HeaderComponent, SidebarComponent, ReactiveFormsModule, NgIf],
-    templateUrl: "./add-edit-mission-skill.component.html",
-    styleUrls: ["./add-edit-mission-skill.component.css"]
+  selector: "app-add-edit-mission-skill",
+  standalone: true,
+  imports: [HeaderComponent, SidebarComponent, ReactiveFormsModule, NgIf],
+  templateUrl: "./add-edit-mission-skill.component.html",
+  styleUrls: ["./add-edit-mission-skill.component.css"],
 })
 export class AddEditMissionSkillComponent implements OnInit, OnDestroy {
   missionSkillForm: FormGroup

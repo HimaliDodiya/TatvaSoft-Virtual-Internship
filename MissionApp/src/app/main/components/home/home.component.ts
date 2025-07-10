@@ -18,10 +18,18 @@ import { Subscription } from 'rxjs';
 
 declare var window: any;
 @Component({
-    selector: 'app-home',
-    templateUrl: './home.component.html',
-    styleUrls: ['./home.component.css'],
-    imports: [CommonModule, FooterComponent, NavbarComponent, NgxPaginationModule, FormsModule, SearchPipe]
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css'],
+  standalone: true,
+  imports: [
+    CommonModule,
+    FooterComponent,
+    NavbarComponent,
+    NgxPaginationModule,
+    FormsModule,
+    SearchPipe,
+  ],
 })
 export class HomeComponent implements OnInit, OnDestroy {
   missionList: any[] = [];
@@ -58,28 +66,32 @@ export class HomeComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    const currentUserSubscribe = this._adminservice.getCurrentUser().subscribe((data: any) => {
-      const loginUserDetail = this._adminservice.getUserDetail();
-      data == null
-        ? (this.loginUserId = loginUserDetail.userId)
-        : (this.loginUserId = data.userId);
-      data == null
-        ? (this.loginUserName = loginUserDetail.fullName)
-        : (this.loginUserName = data.fullName);
-      data == null
-        ? (this.loginemailAddress = loginUserDetail.emailAddress)
-        : (this.loginemailAddress = data.emailAddress);
-    });
+    const currentUserSubscribe = this._adminservice
+      .getCurrentUser()
+      .subscribe((data: any) => {
+        const loginUserDetail = this._adminservice.getUserDetail();
+        data == null
+          ? (this.loginUserId = loginUserDetail.userId)
+          : (this.loginUserId = data.userId);
+        data == null
+          ? (this.loginUserName = loginUserDetail.fullName)
+          : (this.loginUserName = data.fullName);
+        data == null
+          ? (this.loginemailAddress = loginUserDetail.emailAddress)
+          : (this.loginemailAddress = data.emailAddress);
+      });
     this.allMissionList();
-    const searchListSubscribe = this._commonservice.searchList.subscribe((data: any) => {
-      this.searchParam = data;
-    });
+    const searchListSubscribe = this._commonservice.searchList.subscribe(
+      (data: any) => {
+        this.searchParam = data;
+      }
+    );
     this.missionData = '';
     this.unsubscribe.push(currentUserSubscribe, searchListSubscribe);
   }
-  
+
   ngOnDestroy() {
-    this.unsubscribe.forEach((sb) => sb.unsubscribe())
+    this.unsubscribe.forEach((sb) => sb.unsubscribe());
   }
 
   onChangeGrid() {
@@ -91,48 +103,50 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   allMissionList() {
-    const missionListSubscribe = this._service.missionList(this.loginUserId).subscribe((data: any) => {
-      if (data.result == 1) {
-        this.missionList = data.data;
-        this.missionList = this.missionList.map((x) => {
-          var missionimg = x.missionImages
-            ? this._service.imageUrl + '/' + x.missionImages
-            : 'assets/NoImg.png';
-          this.rating3 = x.rating;
-          return {
-            id: x.id,
-            missionTitle: x.missionTitle,
-            missionDescription: x.missionDescription,
-            countryId: x.countryId,
-            countryName: x.countryName,
-            cityId: x.cityId,
-            cityName: x.cityName,
-            startDate: x.startDate,
-            endDate: x.endDate,
-            totalSheets: x.totalSheets,
-            registrationDeadLine: x.registrationDeadLine,
-            missionThemeId: x.missionThemeId,
-            missionSkillId: x.missionSkillId,
-            missionImages: missionimg.split(',', 1),
-            missionThemeName: x.missionThemeName,
-            missionSkillName: x.missionSkillName,
-            missionStatus: x.missionStatus,
-            missionApplyStatus: x.missionApplyStatus,
-            missionApproveStatus: x.missionApproveStatus,
-            missionDateStatus: x.missionDateStatus,
-            missionDeadLineStatus: x.missionDeadLineStatus,
-          };
-        });
-        this.totalMission = data.data.length;
-      } else {
-        this._toast.error({
-          detail: 'ERROR',
-          summary: data.message,
-          duration: APP_CONFIG.toastDuration,
-        });
-        // this.toastr.error(data.message);
-      }
-    });
+    const missionListSubscribe = this._service
+      .missionList(this.loginUserId)
+      .subscribe((data: any) => {
+        if (data.result == 1) {
+          this.missionList = data.data;
+          this.missionList = this.missionList.map((x) => {
+            var missionimg = x.missionImages
+              ? this._service.imageUrl + '/' + x.missionImages
+              : 'assets/NoImg.png';
+            this.rating3 = x.rating;
+            return {
+              id: x.id,
+              missionTitle: x.missionTitle,
+              missionDescription: x.missionDescription,
+              countryId: x.countryId,
+              countryName: x.countryName,
+              cityId: x.cityId,
+              cityName: x.cityName,
+              startDate: x.startDate,
+              endDate: x.endDate,
+              totalSeats: x.totalSeats,
+              registrationDeadLine: x.registrationDeadLine,
+              missionThemeId: x.missionThemeId,
+              missionSkillId: x.missionSkillId,
+              missionImages: missionimg.split(',', 1),
+              missionThemeName: x.missionThemeName,
+              missionSkillName: x.missionSkillName,
+              missionStatus: x.missionStatus,
+              missionApplyStatus: x.missionApplyStatus,
+              missionApproveStatus: x.missionApproveStatus,
+              missionDateStatus: x.missionDateStatus,
+              missionDeadLineStatus: x.missionDeadLineStatus,
+            };
+          });
+          this.totalMission = data.data.length;
+        } else {
+          this._toast.error({
+            detail: 'ERROR',
+            summary: data.message,
+            duration: APP_CONFIG.toastDuration,
+          });
+          // this.toastr.error(data.message);
+        }
+      });
     this.unsubscribe.push(missionListSubscribe);
   }
 
@@ -159,47 +173,49 @@ export class HomeComponent implements OnInit, OnDestroy {
       userId: this.loginUserId,
       sortestValue: selectedVal,
     };
-    const missionClientSubscribe = this._service.missionClientList(value).subscribe((data: any) => {
-      if (data.result == 1) {
-        this.missionList = data.data;
-        this.missionList = this.missionList.map((x) => {
-          const missionimg = x.missionImages
-            ? this._service.imageUrl + '/' + x.missionImages
-            : 'assets/NoImg.png';
-          return {
-            id: x.id,
-            missionTitle: x.missionTitle,
-            missionDescription: x.missionDescription,
-            countryId: x.countryId,
-            countryName: x.countryName,
-            cityId: x.cityId,
-            cityName: x.cityName,
-            startDate: x.startDate,
-            endDate: x.endDate,
-            totalSheets: x.totalSheets,
-            registrationDeadLine: x.registrationDeadLine,
-            missionThemeId: x.missionThemeId,
-            missionSkillId: x.missionSkillId,
-            missionImages: missionimg.split(',', 1),
-            missionThemeName: x.missionThemeName,
-            missionSkillName: x.missionSkillName,
-            missionStatus: x.missionStatus,
-            missionApplyStatus: x.missionApplyStatus,
-            missionApproveStatus: x.missionApproveStatus,
-            missionDateStatus: x.missionDateStatus,
-            missionDeadLineStatus: x.missionDeadLineStatus,
-          };
-        });
-        this.totalMission = data.data.length;
-      } else {
-        this._toast.error({
-          detail: 'ERROR',
-          summary: data.message,
-          duration: APP_CONFIG.toastDuration,
-        });
-        // this.toastr.error(data.message);
-      }
-    });
+    const missionClientSubscribe = this._service
+      .missionClientList(value)
+      .subscribe((data: any) => {
+        if (data.result == 1) {
+          this.missionList = data.data;
+          this.missionList = this.missionList.map((x) => {
+            const missionimg = x.missionImages
+              ? this._service.imageUrl + '/' + x.missionImages
+              : 'assets/NoImg.png';
+            return {
+              id: x.id,
+              missionTitle: x.missionTitle,
+              missionDescription: x.missionDescription,
+              countryId: x.countryId,
+              countryName: x.countryName,
+              cityId: x.cityId,
+              cityName: x.cityName,
+              startDate: x.startDate,
+              endDate: x.endDate,
+              totalSeats: x.totalSeats,
+              registrationDeadLine: x.registrationDeadLine,
+              missionThemeId: x.missionThemeId,
+              missionSkillId: x.missionSkillId,
+              missionImages: missionimg.split(',', 1),
+              missionThemeName: x.missionThemeName,
+              missionSkillName: x.missionSkillName,
+              missionStatus: x.missionStatus,
+              missionApplyStatus: x.missionApplyStatus,
+              missionApproveStatus: x.missionApproveStatus,
+              missionDateStatus: x.missionDateStatus,
+              missionDeadLineStatus: x.missionDeadLineStatus,
+            };
+          });
+          this.totalMission = data.data.length;
+        } else {
+          this._toast.error({
+            detail: 'ERROR',
+            summary: data.message,
+            duration: APP_CONFIG.toastDuration,
+          });
+          // this.toastr.error(data.message);
+        }
+      });
     this.unsubscribe.push(missionClientSubscribe);
   }
 
@@ -253,7 +269,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         if (data.result == 1) {
           this._toast.success({ detail: 'SUCCESS', summary: data.data });
           setTimeout(() => {
-            this.missionData.totalSheets = this.missionData.totalSheets - 1;
+            this.missionData.totalSeats = this.missionData.totalSeats - 1;
           }, 1000);
           window.location.reload();
         } else {
@@ -275,17 +291,19 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   getUserList() {
-    const userListSubscribe = this._service.getUserList(this.loginUserId).subscribe((data: any) => {
-      if (data.result == 1) {
-        this.userList = data.data;
-      } else {
-        this._toast.error({
-          detail: 'ERROR',
-          summary: data.message,
-          duration: APP_CONFIG.toastDuration,
-        });
-      }
-    });
+    const userListSubscribe = this._service
+      .getUserList(this.loginUserId)
+      .subscribe((data: any) => {
+        if (data.result == 1) {
+          this.userList = data.data;
+        } else {
+          this._toast.error({
+            detail: 'ERROR',
+            summary: data.message,
+            duration: APP_CONFIG.toastDuration,
+          });
+        }
+      });
     this.unsubscribe.push(userListSubscribe);
   }
 

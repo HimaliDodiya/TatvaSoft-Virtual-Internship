@@ -118,7 +118,7 @@ export interface Mission {
   missionType?: string;
   startDate: string;
   endDate: string;
-  totalSheets: number;
+  totalSeats: number;
   registrationDeadLine?: string;
   missionTheme?: string;
   missionThemeId: number;
@@ -138,7 +138,7 @@ export interface MissionForm {
   cityId: number;
   startDate: string;
   endDate: string;
-  totalSheets: number;
+  totalSeats: number;
   missionThemeId: number;
   missionSkillId: string | string[];
   missionImages?: string;

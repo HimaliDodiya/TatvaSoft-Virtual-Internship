@@ -21,10 +21,11 @@ import { ClientService } from 'src/app/main/services/client.service';
 import { Role } from 'src/app/main/enums/roles.enum';
 
 @Component({
-    selector: 'app-update-user',
-    imports: [SidebarComponent, HeaderComponent, ReactiveFormsModule, NgIf],
-    templateUrl: './update-user.component.html',
-    styleUrls: ['./update-user.component.css']
+  selector: 'app-update-user',
+  standalone: true,
+  imports: [SidebarComponent, HeaderComponent, ReactiveFormsModule, NgIf],
+  templateUrl: './update-user.component.html',
+  styleUrls: ['./update-user.component.css'],
 })
 export class UpdateUserComponent implements OnInit, OnDestroy {
   private unsubscribe: Subscription[] = [];

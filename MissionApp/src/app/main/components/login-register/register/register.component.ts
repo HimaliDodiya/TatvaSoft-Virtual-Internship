@@ -16,10 +16,11 @@ import { APP_CONFIG } from "src/app/main/configs/environment.config"
 import { AuthService } from "src/app/main/services/auth.service"
 
 @Component({
-    selector: "app-register",
-    imports: [ReactiveFormsModule, NgIf, RouterModule],
-    templateUrl: "./register.component.html",
-    styleUrls: ["./register.component.css"]
+  selector: "app-register",
+  standalone: true,
+  imports: [ReactiveFormsModule, NgIf, RouterModule],
+  templateUrl: "./register.component.html",
+  styleUrls: ["./register.component.css"],
 })
 export class RegisterComponent implements OnInit, OnDestroy {
   private unsubscribe: Subscription[] = [];

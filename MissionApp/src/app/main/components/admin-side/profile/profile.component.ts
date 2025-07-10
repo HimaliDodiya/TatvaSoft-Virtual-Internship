@@ -11,10 +11,11 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 @Component({
-    selector: 'app-profile',
-    imports: [SidebarComponent, HeaderComponent, CommonModule, RouterModule],
-    templateUrl: './profile.component.html',
-    styleUrl: './profile.component.css'
+  selector: 'app-profile',
+  standalone: true,
+  imports: [SidebarComponent, HeaderComponent, CommonModule, RouterModule],
+  templateUrl: './profile.component.html',
+  styleUrl: './profile.component.css',
 })
 export class ProfileComponent implements OnInit, OnDestroy {
   loginUserDetails: any;

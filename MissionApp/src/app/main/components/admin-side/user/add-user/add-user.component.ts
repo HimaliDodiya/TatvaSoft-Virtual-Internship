@@ -19,10 +19,11 @@ import { NgIf } from '@angular/common';
 import { Subscription } from 'rxjs';
 
 @Component({
-    selector: 'app-add-user',
-    imports: [SidebarComponent, HeaderComponent, ReactiveFormsModule, NgIf],
-    templateUrl: './add-user.component.html',
-    styleUrls: ['./add-user.component.css']
+  selector: 'app-add-user',
+  standalone: true,
+  imports: [SidebarComponent, HeaderComponent, ReactiveFormsModule, NgIf],
+  templateUrl: './add-user.component.html',
+  styleUrls: ['./add-user.component.css'],
 })
 export class AddUserComponent implements OnInit, OnDestroy {
   private unsubscribe: Subscription[] = [];
@@ -106,7 +107,6 @@ export class AddUserComponent implements OnInit, OnDestroy {
         .registerUser(register)
         .subscribe(
           (data: any) => {
-            debugger;
             if (data.result == 1) {
               //this.toastr.success(data.data);
               this._toast.success({

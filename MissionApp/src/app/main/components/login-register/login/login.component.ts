@@ -14,10 +14,11 @@ import { APP_CONFIG } from 'src/app/main/configs/environment.config';
 import { AuthService } from 'src/app/main/services/auth.service';
 
 @Component({
-    selector: 'app-login',
-    imports: [ReactiveFormsModule, NgIf, RouterModule],
-    templateUrl: './login.component.html',
-    styleUrls: ['./login.component.css']
+  selector: 'app-login',
+  standalone: true,
+  imports: [ReactiveFormsModule, NgIf, RouterModule],
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit, OnDestroy {
   private unsubscribe: Subscription[] = [];
