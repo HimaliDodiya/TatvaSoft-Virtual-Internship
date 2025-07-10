@@ -6,11 +6,10 @@ import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-searching-sorting',
-  templateUrl: './searching-sorting.component.html',
-  styleUrls: ['./searching-sorting.component.css'],
-  standalone: true,
-  imports: [CommonModule]
+    selector: 'app-searching-sorting',
+    templateUrl: './searching-sorting.component.html',
+    styleUrls: ['./searching-sorting.component.css'],
+    imports: [CommonModule]
 })
 export class SearchingSortingComponent implements OnInit, OnDestroy {
   missionCountryList: any[] = [];

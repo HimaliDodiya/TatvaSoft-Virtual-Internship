@@ -12,11 +12,10 @@ import { FilterPipe } from 'src/app/main/pipes/filter.pipe';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-mission-application',
-  standalone: true,
-  imports: [SidebarComponent, HeaderComponent, NgxPaginationModule, CommonModule, FormsModule, FilterPipe],
-  templateUrl: './mission-application.component.html',
-  styleUrls: ['./mission-application.component.css']
+    selector: 'app-mission-application',
+    imports: [SidebarComponent, HeaderComponent, NgxPaginationModule, CommonModule, FormsModule, FilterPipe],
+    templateUrl: './mission-application.component.html',
+    styleUrls: ['./mission-application.component.css']
 })
 export class MissionApplicationComponent implements OnInit, OnDestroy {
   applicationList: any[] = [];

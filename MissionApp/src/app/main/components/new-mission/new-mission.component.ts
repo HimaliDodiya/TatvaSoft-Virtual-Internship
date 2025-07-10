@@ -4,11 +4,10 @@ import { CommonModule } from '@angular/common';
 import { SearchingSortingComponent } from '../searching-sorting/searching-sorting.component';
 
 @Component({
-  selector: 'app-new-mission',
-  templateUrl: './new-mission.component.html',
-  styleUrls: ['./new-mission.component.css'],
-  standalone: true,
-  imports: [NavbarComponent, CommonModule, SearchingSortingComponent]
+    selector: 'app-new-mission',
+    templateUrl: './new-mission.component.html',
+    styleUrls: ['./new-mission.component.css'],
+    imports: [NavbarComponent, CommonModule, SearchingSortingComponent]
 })
 export class NewMissionComponent implements OnInit {
 

@@ -19,11 +19,10 @@ import { NgIf } from '@angular/common';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-add-user',
-  standalone: true,
-  imports: [SidebarComponent, HeaderComponent, ReactiveFormsModule, NgIf],
-  templateUrl: './add-user.component.html',
-  styleUrls: ['./add-user.component.css'],
+    selector: 'app-add-user',
+    imports: [SidebarComponent, HeaderComponent, ReactiveFormsModule, NgIf],
+    templateUrl: './add-user.component.html',
+    styleUrls: ['./add-user.component.css']
 })
 export class AddUserComponent implements OnInit, OnDestroy {
   private unsubscribe: Subscription[] = [];

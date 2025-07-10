@@ -12,11 +12,10 @@ import { FilterPipe } from 'src/app/main/pipes/filter.pipe';
 import { Subscription } from 'rxjs';
 declare var window:any;
 @Component({
-  selector: 'app-missiontheme',
-  standalone: true,
-  imports: [SidebarComponent, HeaderComponent, FormsModule, RouterModule, NgxPaginationModule, NgStyle, NgIf, NgFor, FilterPipe],
-  templateUrl: './missiontheme.component.html',
-  styleUrls: ['./missiontheme.component.css'],
+    selector: 'app-missiontheme',
+    imports: [SidebarComponent, HeaderComponent, FormsModule, RouterModule, NgxPaginationModule, NgStyle, NgIf, NgFor, FilterPipe],
+    templateUrl: './missiontheme.component.html',
+    styleUrls: ['./missiontheme.component.css']
 })
 export class MissionthemeComponent implements OnInit, OnDestroy {
   missionThemeList: any[] = [];

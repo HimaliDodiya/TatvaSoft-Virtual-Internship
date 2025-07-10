@@ -11,11 +11,10 @@ import { NgIf } from "@angular/common"
 import { Subscription } from "rxjs"
 
 @Component({
-  selector: "app-add-edit-mission-theme",
-  standalone: true,
-  imports: [SidebarComponent, HeaderComponent, ReactiveFormsModule, NgIf],
-  templateUrl: "./add-edit-mission-theme.component.html",
-  styleUrls: ["./add-edit-mission-theme.component.css"],
+    selector: "app-add-edit-mission-theme",
+    imports: [SidebarComponent, HeaderComponent, ReactiveFormsModule, NgIf],
+    templateUrl: "./add-edit-mission-theme.component.html",
+    styleUrls: ["./add-edit-mission-theme.component.css"]
 })
 export class AddEditMissionThemeComponent implements OnInit, OnDestroy {
   // Component implementation

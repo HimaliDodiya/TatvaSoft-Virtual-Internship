@@ -17,17 +17,16 @@ import { SidebarComponent } from '../../sidebar/sidebar.component';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-add-mission',
-  standalone: true,
-  imports: [
-    HeaderComponent,
-    SidebarComponent,
-    ReactiveFormsModule,
-    NgIf,
-    NgFor,
-  ],
-  templateUrl: './add-mission.component.html',
-  styleUrls: ['./add-mission.component.css'],
+    selector: 'app-add-mission',
+    imports: [
+        HeaderComponent,
+        SidebarComponent,
+        ReactiveFormsModule,
+        NgIf,
+        NgFor,
+    ],
+    templateUrl: './add-mission.component.html',
+    styleUrls: ['./add-mission.component.css']
 })
 export class AddMissionComponent implements OnInit, OnDestroy {
   addMissionForm: FormGroup;

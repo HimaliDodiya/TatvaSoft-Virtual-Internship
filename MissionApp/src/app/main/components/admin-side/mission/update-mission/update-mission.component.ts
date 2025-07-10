@@ -18,17 +18,16 @@ import { HeaderComponent } from '../../header/header.component';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-update-mission',
-  standalone: true,
-  imports: [
-    SidebarComponent,
-    HeaderComponent,
-    ReactiveFormsModule,
-    NgIf,
-    NgFor,
-  ],
-  templateUrl: './update-mission.component.html',
-  styleUrls: ['./update-mission.component.css'],
+    selector: 'app-update-mission',
+    imports: [
+        SidebarComponent,
+        HeaderComponent,
+        ReactiveFormsModule,
+        NgIf,
+        NgFor,
+    ],
+    templateUrl: './update-mission.component.html',
+    styleUrls: ['./update-mission.component.css']
 })
 export class UpdateMissionComponent implements OnInit, OnDestroy {
   missionId: any;
