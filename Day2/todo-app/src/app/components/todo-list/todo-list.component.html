@@ -1,9 +1,0 @@
-<div class="container mt-5">
-    <app-add-todo></app-add-todo>
-    <ul class="list-group mt-3">
-      <li class="list-group-item" *ngFor="let todo of todos">
-        <app-todo-item [todo]="todo" (toggle)="toggleTodoCompletion($event)" (delete)="deleteTodo($event)"></app-todo-item>
-      </li>
-    </ul>
-  </div>
-  
